@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Pj9TDCzvCIpca1Pj+w7od6uQu47IvW3NT6QWgR8AGWo=",
+  "Source": "TaskNext.Api",
+  "BasePath": "_content/TaskNext.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
