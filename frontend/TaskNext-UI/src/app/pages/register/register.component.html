@@ -1,0 +1,35 @@
+<div class="container py-5" style="max-width: 520px;">
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h3 class="mb-3">Create TaskNext Account</h3>
+
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+      <form (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" [(ngModel)]="name" name="name" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input class="form-control" [(ngModel)]="email" name="email" type="email" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input class="form-control" [(ngModel)]="password" name="password" type="password" minlength="6" required />
+          <div class="form-text">Minimum 6 characters</div>
+        </div>
+
+        <button class="btn btn-success w-100" [disabled]="loading">
+          {{ loading ? 'Creating...' : 'Register' }}
+        </button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a routerLink="/login">Back to login</a>
+      </div>
+    </div>
+  </div>
+</div>

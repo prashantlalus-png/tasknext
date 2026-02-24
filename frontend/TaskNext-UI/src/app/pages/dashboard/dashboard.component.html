@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <span class="navbar-brand">TaskNext</span>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <span class="text-white-50">Hi, {{ userName }}</span>
+      <button class="btn btn-outline-light btn-sm" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Create Task</h5>
+
+      <div class="row g-2">
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Title" [(ngModel)]="title" />
+        </div>
+        <div class="col-md-5">
+          <input class="form-control" placeholder="Description (optional)" [(ngModel)]="description" />
+        </div>
+        <div class="col-md-2 d-grid">
+          <button class="btn btn-primary" (click)="createTask()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h5 class="mb-0">My Tasks</h5>
+
+    <div class="btn-group">
+      <button class="btn btn-outline-secondary" [class.active]="filter==='all'" (click)="filter='all'">All</button>
+      <button class="btn btn-outline-secondary" [class.active]="filter==='pending'" (click)="filter='pending'">Pending</button>
+      <button class="btn btn-outline-secondary" [class.active]="filter==='done'" (click)="filter='done'">Done</button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-muted">Loading tasks...</div>
+
+  <div *ngIf="!loading && filteredTasks.length === 0" class="alert alert-light border">
+    No tasks yet. Add your first task above.
+  </div>
+
+  <div class="list-group">
+    <div *ngFor="let t of filteredTasks" class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="me-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [checked]="t.isDone" (change)="toggleDone(t)" />
+          <label class="form-check-label">
+            <span [class.text-decoration-line-through]="t.isDone" [class.text-muted]="t.isDone">
+              {{ t.title }}
+            </span>
+          </label>
+        </div>
+        <div class="small text-muted" *ngIf="t.description">{{ t.description }}</div>
+      </div>
+
+      <button class="btn btn-outline-danger btn-sm" (click)="deleteTask(t)">Delete</button>
+    </div>
+  </div>
+</div>
