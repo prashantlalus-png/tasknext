@@ -4,6 +4,7 @@ using TaskNext.Api.Data;
 using TaskNext.Api.Dtos;
 using TaskNext.Api.Models;
 using TaskNext.Api.Services;
+using BCrypt.Net;
 
 namespace TaskNext.Api.Controllers; // Nest ko Next kar diya
 

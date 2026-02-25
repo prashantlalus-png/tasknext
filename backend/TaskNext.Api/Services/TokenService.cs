@@ -29,29 +29,31 @@ public class TokenService : ITokenService
         _jwt = jwtOptions.Value;
     }
 
-    public (string token, DateTime expiresAtUtc) CreateToken(User user)
+public (string token, DateTime expiresAtUtc) CreateToken(User user)
+{
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
+    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+    // Claims update karein:
+    var claims = new List<Claim>
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+        new(JwtRegisteredClaimNames.Email, user.Email),
+        new("name", user.Name),
+        // YE LINE ADD KAREIN: Iske bina TasksController user ko nahi pehchanega
+        new(System.Security.Claims.ClaimTypes.NameIdentifier, user.Id.ToString())
+    };
 
-        // Claims: Token ke andar chupi hui user ki jankari
-        var claims = new List<Claim>
-        {
-            new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new(JwtRegisteredClaimNames.Email, user.Email),
-            new("name", user.Name)
-        };
+    var expires = DateTime.UtcNow.AddMinutes(_jwt.ExpiresMinutes);
 
-        var expires = DateTime.UtcNow.AddMinutes(_jwt.ExpiresMinutes);
+    var token = new JwtSecurityToken(
+        issuer: _jwt.Issuer,
+        audience: _jwt.Audience,
+        claims: claims,
+        expires: expires,
+        signingCredentials: creds
+    );
 
-        var token = new JwtSecurityToken(
-            issuer: _jwt.Issuer,
-            audience: _jwt.Audience,
-            claims: claims,
-            expires: expires,
-            signingCredentials: creds
-        );
-
-        return (new JwtSecurityTokenHandler().WriteToken(token), expires);
-    }
+    return (new JwtSecurityTokenHandler().WriteToken(token), expires);
+}
 }
