@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskNext.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21628ef1dc55d178533321b028dad0cc523c0c4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskNext.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskNext.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

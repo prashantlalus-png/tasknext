@@ -112,3 +112,14 @@
 /Users/prashantlal/tasknest/backend/TaskNext.Api/obj/Debug/net8.0/TaskNext.Api.pdb
 /Users/prashantlal/tasknest/backend/TaskNext.Api/obj/Debug/net8.0/TaskNext.Api.genruntimeconfig.cache
 /Users/prashantlal/tasknest/backend/TaskNext.Api/obj/Debug/net8.0/ref/TaskNext.Api.dll
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/publish/web.config
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/web.config
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/appsettings.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/publish/appsettings.Development.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/publish/appsettings.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/publish/TaskNext.Api.deps.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/publish/TaskNext.Api.runtimeconfig.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/TaskNext.Api.deps.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/bin/Debug/net8.0/publish/TaskNext.Api.runtimeconfig.json
+/Users/prashantlal/tasknest/backend/TaskNext.Api/obj/Debug/net8.0/TaskNext.Api.sourcelink.json
